@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+// FONT VARIABLES
+$title-font: helvetica;
+$body-font: "Nunito Sans", sans-serif;
+
+// COLOR VARIABLES
+
+$color-title-purple: #212353;
+$color-text-gray: #4b5d68;
+$color-bg-purple: #9c69e2;
+$color-bg-pink: #f063b8;
+$color-bg-cyan: #68c9ba;
+$color-bg-turqoise: #2d9cdb;
+
+// BUTTON MIXIN
+@mixin rounded-button($bg, $color, $width, $shadow: true) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  height: 60px;
+  width: $width;
+  border-radius: 50px;
+  border: 0 none;
+  background-color: $bg;
+
+  color: $color;
+  font-weight: 600;
+
+  @if ($shadow) {
+    filter: drop-shadow(0 1mm 1mm rgba(black, 0.1));
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: $body-font;
+  background: rgb(237, 255, 252);
+  background: linear-gradient(
+    190deg,
+    rgb(244, 255, 253) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    width: 70%;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 49px;
+      height: 35px;
+    }
+  }
+
+  &__menu {
+    flex-grow: 2;
+
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    justify-content: flex-start;
+
+    margin-left: 40px;
+  }
+
+  &__item {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    color: $color-text-gray;
+    padding: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: bolder;
+      color: $color-title-purple;
+    }
+  }
+
+  &__button {
+    @include rounded-button(#fff, $color-title-purple, 210px, true);
+
+    svg {
+      width: 20px;
+      height: 14px;
+    }
+  }
+}
+
+.header {
+  width: 70%;
+  display: flex;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
+
+  &__text-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    width: 70%;
+    z-index: 1;
+
+    h1 {
+      font-family: $title-font;
+      letter-spacing: 2px;
+      line-height: 5rem;
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: $color-title-purple;
+
+      width: 90%;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      width: 60%;
+      color: $color-text-gray;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__draw {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: absolute;
+      width: 80%;
+      right: -10rem;
+      bottom: 0;
+    }
+  }
+
+  &__button {
+    @include rounded-button($color-bg-purple, #fff, 170px, false);
+  }
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  background-color: rgba($color-bg-pink, 0.15);
+  border-radius: 50px;
+  padding: 0 0 1rem 0;
+  margin-bottom: 5rem;
+
+  &__text-area {
+    padding: 4rem;
+
+    h1 {
+      font-size: 2rem;
+      color: $color-title-purple;
+      font-weight: 800;
+    }
+
+    p {
+      color: $color-text-gray;
+    }
+  }
+
+  &__draw {
+    display: flex;
+    width: 50%;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+
+  &__text-area {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    h1 {
+      font-size: 2rem;
+      color: $color-title-purple;
+    }
+
+    p {
+      width: 60%;
+      color: $color-text-gray;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    gap: 1rem;
+    width: 70%;
+  }
+
+  .card {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    &__data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__text-area {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem 2rem 0 1rem;
+
+      h1 {
+        color: $color-title-purple;
+      }
+      p {
+        line-height: 1.5rem;
+        color: $color-text-gray;
+        height: 160px;
+      }
+    }
+
+    &__button {
+      @include rounded-button(transparent, $color-title-purple, 150px, false);
+      padding-bottom: 1rem;
+    }
+
+    &__bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.quotes {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: 700px;
+  background-color: $color-bg-purple;
+  border-radius: 50px;
+  margin-bottom: 5rem;
+  padding: 5rem 0 2rem 5rem;
+
+  h1 {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .quote {
+    display: flex;
+    top: 100px;
+    bottom: 0;
+    position: absolute;
+    align-items: center;
+    width: 100vw;
+    gap: 1rem;
+
+    &__card {
+      display: flex;
+      position: relative;
+      align-items: flex-start;
+      gap: 2rem;
+      border: 1px solid $color-bg-purple;
+      height: 330px;
+      border-radius: 20px;
+      background-color: #fff;
+      padding: 3rem;
+      font-size: 1.25rem;
+      transition: 500ms ease-in-out;
+    }
+
+    .active {
+      order: 0;
+      width: 50%;
+      filter: drop-shadow(0 4mm 0 rgba(black, 0.1));
+
+      p {
+        padding-right: 2rem;
+      }
+    }
+
+    .passive {
+      position: relative;
+      order: 1;
+      width: 30%;
+      overflow: hidden;
+      filter: drop-shadow(0 4mm 0 rgba(black, 0.05));
+
+      p {
+        width: 100%;
+      }
+
+      .quote__text-area {
+        mask-image: linear-gradient(to left, transparent 25%, black 200%);
+      }
+    }
+
+    &__text-area {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+
+      h4 {
+        padding: 0;
+        margin-bottom: 0;
+      }
+      small {
+        color: $color-bg-purple;
+      }
+      p {
+        position: absolute;
+        padding-top: 6rem;
+        color: $color-text-gray;
+        line-height: 1.8rem;
+      }
+    }
+
+    &__avatar {
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
+  &__footer {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 4rem;
+  }
+
+  &__indicator {
+    svg {
+      font-size: 3rem;
+    }
+  }
+
+  &__switcher {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  width: 100%;
+
+  .offer {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+
+    &__message {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+
+      h1 {
+        color: $color-title-purple;
+        margin-bottom: 0;
+      }
+      p {
+        color: $color-text-gray;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 2rem;
+
+      .more {
+        @include rounded-button($color-bg-pink, #fff, 170px, false);
+      }
+      .demo {
+        @include rounded-button(#fff, $color-title-purple, 210px, true);
+      }
+    }
+  }
+
+  &__container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .company {
+      display: flex;
+      justify-content: space-between;
+
+      &__info {
+        display: flex;
+        width: 25%;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .adress {
+          color: $color-title-purple;
+          font-weight: bold;
+        }
+      }
+
+      &__logo {
+        display: flex;
+        justify-self: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        p {
+          color: $color-title-purple;
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+
+        svg {
+          width: 49px;
+          height: 35px;
+        }
+      }
+
+      &__links {
+        display: flex;
+        gap: 5rem;
+
+        p {
+          color: $color-title-purple;
+          font-weight: bold;
+          margin-bottom: 2rem;
+        }
+
+        ul {
+          line-height: 2rem;
+          list-style: none;
+        }
+
+        a {
+          text-decoration: none;
+          color: $color-title-purple;
+        }
+      }
+
+      &__social-links {
+        display: flex;
+
+        p {
+          color: $color-title-purple;
+          font-weight: bold;
+          margin-bottom: 2rem;
+        }
+
+        ul {
+          list-style: none;
+          li {
+            cursor: pointer;
+            display: inline;
+            padding: 4px;
+          }
+        }
+
+        svg {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+
+    .rights {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 3rem;
+
+      p {
+        width: 50%;
+      }
+
+      svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}

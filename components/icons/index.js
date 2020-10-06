@@ -1,0 +1,8 @@
+export { default as Facebook } from './Facebook'
+export { default as Indicator } from './Indicator'
+export { default as Instagram } from './Instagram'
+export { default as LeftArrow } from './LeftArrow'
+export { default as Logo } from './Logo'
+export { default as Message } from './Message'
+export { default as RightArrow } from './RightArrow'
+export { default as Twitter } from './Twitter'
