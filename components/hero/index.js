@@ -3,6 +3,9 @@ import Link from "next/link";
 
 export default () => (
   <section className="header" id="hero">
+    <div className="header__draw">
+      <img src="./assets/illustrations/hero.svg" alt="illustration"></img>
+    </div>
     <div className="header__text-area">
       <h1>Save your data storage here.</h1>
       <p>
@@ -13,9 +16,6 @@ export default () => (
       <Link href="#">
         <div className="header__button">Learn More</div>
       </Link>
-    </div>
-    <div className="header__draw">
-      <img src="./assets/illustrations/hero.svg" alt="illustration"></img>
     </div>
   </section>
 );
